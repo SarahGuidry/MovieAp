@@ -6,6 +6,7 @@ import Movie from './components/Movie';
 import MovieHeader from './components/MovieHeader';
 import AddMovieForm from './components/AddMovieForm';
 import EditMovieForm from './components/EditMovieForm';
+import DeleteMovieModal from "./components/DeleteMovieModal";
 
 
 const App = () => {
@@ -27,10 +28,13 @@ const App = () => {
   }
 
   const deleteMovie = (id)=> {
+    console.log(`attempting delete movie action for ${id}`)
     axios.delete(`http://localhost:5000/api/movies/${id}`)
       .then(() =>{
+        console.log('delete movie complete')
           getData();
           push('/movies')
+
       });
     }
 
@@ -45,7 +49,7 @@ const App = () => {
     
       <div className="container">
         <MovieHeader/>
-        <SearchBar filterMovies={filterMovies} />
+       
         
         <div className="row ">
               
@@ -58,8 +62,8 @@ const App = () => {
               <AddMovieForm setMovies={setMovies}/>
             </Route>
             
-            <Route path="/movies/:id">
-              <Movie deleteMovie={deleteMovie} movie={Movie}/>
+            <Route path="/movies/delete/:id">
+              <DeleteMovieModal setMovies={setMovies} deleteMovie={deleteMovie}/>
             </Route>
 
             <Route path="/movies/:id">
