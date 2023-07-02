@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios'
 
 import MovieListItem from './MovieListItem'
 import MovieFooter from './MovieFooter'
@@ -7,9 +6,9 @@ import MovieFooter from './MovieFooter'
 const MovieSearchModal = (props) => {
 
     const { query } = props
-    const [results, setResults] = useState([])
+    const [results] = useState([])
     const searchForMovie = props.searchForMovie
-    
+
     searchForMovie(query)
     console.log('searching')
     return (
@@ -26,15 +25,12 @@ const MovieSearchModal = (props) => {
                 </thead>
 
                 <tbody>
-                    {results.map(movie => <MovieListItem key={movie.id} movie={movie} />)}
+                    {results.map(result =>{result.title} )}
                 </tbody>
             </table>
             <MovieFooter totalMovies={results.length} />
         </div>
     )
 
-    function newFunction() {
-        searchForMovie()
-    }
 }
 export default MovieSearchModal

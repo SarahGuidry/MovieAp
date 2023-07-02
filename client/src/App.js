@@ -1,14 +1,16 @@
+import axios from 'axios';
 import React, { useEffect, useState } from "react";
-import axios from 'axios'
-import { Route, Switch, Redirect, useHistory } from "react-router-dom";
-import MovieList from './components/MovieList';
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+
+//Components:
+import DeleteMovieModal from "./components/DeleteMovieModal";
+import EditMovieForm from './components/EditMovieForm';
+import ManuallyAddMovieForm from './components/ManuallyAddMovieForm';
 import Movie from './components/Movie';
 import MovieHeader from './components/MovieHeader';
-import ManuallyAddMovieForm from './components/ManuallyAddMovieForm';
-import EditMovieForm from './components/EditMovieForm';
-import DeleteMovieModal from "./components/DeleteMovieModal";
+import MovieList from './components/MovieList';
 import MovieSearchModal from "./components/MovieSearchModal";
-import VerifyAddTypeModal from './components/VerifyAddTypeModal.js'
+import VerifyAddTypeModal from './components/VerifyAddTypeModal.js';
 
 
 const App = () => {
@@ -40,15 +42,7 @@ const App = () => {
 
       });
   }
-
-  async function searchForMovie(query) {
-    await axios.get(`http://www.omdbapi.com/&t=${query}&apikey=[37db357b]`)
-        .then(resp => {
-            setResults(...results, resp.data)
-            console.log('the results should be next:')
-            console.log(resp.data)
-        })
-}
+  console.log(`${movies.map(movie => { movie.name })}`)
 
 
   return (
@@ -60,15 +54,15 @@ const App = () => {
       <div className="container">
 
         <MovieHeader />
-      <div className="row ">
+        <div className="row ">
           <Switch>
             <Route path="/movies/edit/:id">
               <EditMovieForm setMovies={setMovies} />
             </Route>
-            <Route path="/movies/addType" component={VerifyAddTypeModal}/>
+            <Route path="/movies/addType" component={VerifyAddTypeModal} />
 
             <Route path="/movies/add" component={ManuallyAddMovieForm}>
-              <ManuallyAddMovieForm setMovies={setMovies}/>
+              <ManuallyAddMovieForm setMovies={setMovies} />
             </Route>
 
             <Route path="/movies/delete/:id">
@@ -79,13 +73,10 @@ const App = () => {
               <Movie movie={Movie} />
             </Route>
 
-            <Route path="/movies/search/:query">
-              <MovieSearchModal movieList={MovieList} searchForMovie={searchForMovie} />
+            <Route path="/movies/search/">
+              <MovieSearchModal />
             </Route>
 
-            <Route path='/movies/search'>
-            
-            </Route>
             <Route path="/movies">
               <MovieList movies={movies} />
             </Route>

@@ -17,7 +17,7 @@ const MovieHeader = () => {
             </div>
             <div className="col-sm-4">
                 <input type='text' onChange={handleChange} placeholder='Search for Movie' />
-                <Link to={`/movies/search/t='${query}'`} className='btn btn-danger'>
+                <Link to={`/movies/search/}'`} className='btn btn-danger'>
                     Search                
 				</Link>
                 </div><div className="col-sm-6">
