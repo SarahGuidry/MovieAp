@@ -1,16 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
-import MovieListItem from './MovieListItem'
+//import MovieListItem from './MovieListItem'
 import MovieFooter from './MovieFooter'
 
 const MovieSearchModal = (props) => {
 
-    const { query } = props
-    const [results, setResults] = useState([])
-    const searchForMovie = props.searchForMovie
+    const [results,setResults] = useState([])
     
-    searchForMovie(query)
     console.log('searching')
     return (
         <div className="col">
@@ -26,15 +23,12 @@ const MovieSearchModal = (props) => {
                 </thead>
 
                 <tbody>
-                    {results.map(movie => <MovieListItem key={movie.id} movie={movie} />)}
+                    {results.map(result =>{result.title} )}
                 </tbody>
             </table>
             <MovieFooter totalMovies={results.length} />
         </div>
     )
 
-    function newFunction() {
-        searchForMovie()
-    }
 }
 export default MovieSearchModal

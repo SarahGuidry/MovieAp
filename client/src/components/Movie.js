@@ -38,7 +38,7 @@ const Movie = (props) => {
                             <div>
                                 <label>Genre: <strong>{movie.genre}</strong></label>
                             </div>
-                            <div>C:\Users\sarah\OneDrive\Desktop\MovieApp\client\src\components\DeleteMovieModal.js
+                            <div>
                                 <label>Metascore: <strong>{movie.metascore}</strong></label>
                             </div>
                             <div>
