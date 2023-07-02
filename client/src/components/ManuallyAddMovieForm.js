@@ -10,7 +10,7 @@ const blankMovie = {
     description: ""
 }
 
-const AddMovieForm = (props) => {
+const ManuallyAddMovieForm = (props) => {
     const {push}=useHistory();
     const [movie, setMovie] = useState(blankMovie);
     
@@ -72,4 +72,4 @@ const AddMovieForm = (props) => {
         </div>);
     }
     
-    export default AddMovieForm;
+    export default ManuallyAddMovieForm;
