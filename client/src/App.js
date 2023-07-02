@@ -4,9 +4,9 @@ import { Route, Switch, Redirect, useHistory } from "react-router-dom";
 import MovieList from './components/MovieList';
 import Movie from './components/Movie';
 import MovieHeader from './components/MovieHeader';
-import AddMovieForm from './components/AddMovieForm';
+import ManuallyAddMovieForm from './components/ManuallyAddMovieForm';
 import EditMovieForm from './components/EditMovieForm';
-
+import VerifyAddTypeModal from './components/VerifyAddTypeModal.js'
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -45,7 +45,7 @@ const App = () => {
     
       <div className="container">
         <MovieHeader/>
-        <SearchBar filterMovies={filterMovies} />
+      
         
         <div className="row ">
               
@@ -54,8 +54,10 @@ const App = () => {
               <EditMovieForm setMovies={setMovies}/>
             </Route>
 
-            <Route path="/movies/add" component={AddMovieForm}>
-              <AddMovieForm setMovies={setMovies}/>
+            <Route path="/movies/addType" component={VerifyAddTypeModal}/>
+
+            <Route path="/movies/add" component={ManuallyAddMovieForm}>
+              <ManuallyAddMovieForm setMovies={setMovies}/>
             </Route>
             
             <Route path="/movies/:id">
@@ -65,6 +67,8 @@ const App = () => {
             <Route path="/movies/:id">
               <Movie movie={Movie}/>
             </Route>
+
+            
 
             <Route path="/movies">
               <MovieList movies={movies}/>
