@@ -16,7 +16,7 @@ import VerifyAddTypeModal from './components/VerifyAddTypeModal.js';
 const App = () => {
   const [movies, setMovies] = useState([]);
   const { push } = useHistory();
-  const [results, setResults] = useState([])
+  //const [results, setResults] = useState([])
 
   useEffect(() => {
     getData();

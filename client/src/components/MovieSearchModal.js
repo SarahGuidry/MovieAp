@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
-import MovieListItem from './MovieListItem'
+//import MovieListItem from './MovieListItem'
 import MovieFooter from './MovieFooter'
 
 const MovieSearchModal = (props) => {
 
-    const { query } = props
-    const [results] = useState([])
-    const searchForMovie = props.searchForMovie
-
-    searchForMovie(query)
+    const [results,setResults] = useState([])
+    
     console.log('searching')
     return (
         <div className="col">
