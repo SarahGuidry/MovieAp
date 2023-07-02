@@ -12,14 +12,15 @@ const MovieHeader = () => {
 
     return (<div className="table-title">
         <div className="row">
-            <div className="col-sm-6">
+            <div className="col-sm-2">
                 <h2>IMDB Movie Database</h2>
             </div>
-            <div className="col-sm-2">
+            <div className="col-sm-4">
                 <input type='text' onChange={handleChange} placeholder='Search for Movie' />
                 <Link to={`/movies/search/t='${query}'`} className='btn btn-danger'>
                     Search                
 				</Link>
+                </div><div className="col-sm-6">
                 <Link to="/movies/addType/" className="btn btn-success">
                     <i className="material-icons">&#xE147;</i> <span>Add New Movie</span>
 				</Link>
