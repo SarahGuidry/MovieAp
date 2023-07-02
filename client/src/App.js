@@ -68,8 +68,9 @@ const App = () => {
               <Movie movie={Movie}/>
             </Route>
 
+            <Route path='/movies/search'>
             
-
+            </Route>
             <Route path="/movies">
               <MovieList movies={movies}/>
             </Route>
